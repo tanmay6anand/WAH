@@ -1,112 +1,70 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
 
-import React from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import React, {useState} from 'react';
+import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, ScrollView, Alert, StatusBar } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
-
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
+export default function App() {
+  const [pass,SetPass]=useState("");
+  const [email,SetEmail]=useState("");
+  
+   
+    return (
+        <View style={{ flex:1,
+            backgroundColor: '#fff',paddingLeft:'3%',paddingTop:'3%'
+            }}>
+                
+        
+        <View style={styles.container}>
+         
+            
+           <Text style={{fontSize:40,marginBottom:20}}>Wash At Home</Text>
+           <TextInput
+                style={{ marginTop:10, margin: 5, padding: 5, paddingLeft: 20, backgroundColor: '#EBEDEF', width: 300, borderRadius: 20, fontSize: 15,height:50 }}
+                placeholder='Email'
+                autoCapitalize = 'none'
+                placeholderTextColor='darkgrey'
+                value={email}
+                onChangeText={(val) => SetEmail(val)}
+            />
+             <TextInput
+                    style={{ marginTop:10, margin: 5, padding: 5, paddingLeft: 20, backgroundColor: '#EBEDEF', width: 300, borderRadius: 20, fontSize: 15,height:50 }}
+                      placeholder='Password'
+                      autoCapitalize = 'none'
+                      placeholderTextColor='darkgrey'
+                     secureTextEntry={true}
+                      value={pass}
+                      onChangeText={(val) => SetPass(val)}
+                  />
+            
+            <TouchableOpacity
+               
+                style={{ shadowColor: "#000",
+                shadowOffset: {
+                    width: 0,
+                    height: 2,
+                },
+                shadowOpacity: 0.5,
+                shadowRadius: 4,
+                
+                elevation: 7,marginTop:'10%', backgroundColor: '#FFAD2F',borderRadius: 25, paddingVertical:'2%', paddingHorizontal:'10%', justifyContent: 'center' }}>
+                <Text style={{ fontFamily:'JosefinSans-SemiBold',fontSize: 20,paddingRight:5,paddingBottom:3, color: 'white' ,alignSelf:'center'}}>Login</Text>
+            </TouchableOpacity>
+            
+            <TouchableOpacity>
+                <Text style={{ fontFamily:'JosefinSans-SemiBold',fontSize: 20,paddingRight:5,paddingBottom:3, color: 'black' ,alignSelf:'center',marginTop:15}}>Register</Text>
+            </TouchableOpacity>
+            
+           
+           
         </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
-
+        </View>
+    );
+}
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingBottom:'15%'
+    },
 });
-
-export default App;
