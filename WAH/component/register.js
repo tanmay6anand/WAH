@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, ScrollView, Alert, StatusBar } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import { AuthContext } from './context';
+// import {
+//     JosefinSans_600SemiBold
+//   } from "@expo-google-fonts/josefin-sans";
 export function Register({ navigation }) {
     const [name, SetName] = useState("");
     const [age, SetAge] = useState("");
@@ -11,7 +14,14 @@ export function Register({ navigation }) {
     const [type, SetType] = useState("");
     const [email, SetEmail] = useState("");
     const { signin } = React.useContext(AuthContext);
+
+
+
+    
     const register = (email, password, name, mob, addr, type) => {
+        // let [fontsLoaded] = useFonts({
+        //     JosefinSans_600SemiBold
+        //   });
         fetch("https://wash-at-home.herokuapp.com/signup", {
             method: "post",
             headers: {
@@ -61,7 +71,6 @@ export function Register({ navigation }) {
             backgroundColor: '#fff', paddingLeft: '3%', paddingTop: '3%'
         }}>
 
-
             <View style={styles.container}>
 
 
@@ -102,7 +111,7 @@ export function Register({ navigation }) {
                     onChangeText={(val) => SetAge(val)}
                 /> */}
                 <TextInput
-                    style={{ marginTop: 10, margin: 5, padding: 5, paddingLeft: 20, backgroundColor: '#EBEDEF', width: 300, borderRadius: 20, fontSize: 15, height: 100, color: "black" }}
+                    style={{ marginTop: 10, margin: 5, padding: 5,paddingBottom:0, paddingLeft: 20, backgroundColor: '#EBEDEF', width: 300, borderRadius: 20, fontSize: 15, height: 100, color: "black" }}
                     placeholder='Address'
                     autoCapitalize='none'
                     placeholderTextColor='black'
@@ -110,22 +119,25 @@ export function Register({ navigation }) {
                     multiline
                     onChangeText={(val) => SetAddr(val)}
                 />
-                <TouchableOpacity style={{ marginTop: 10, margin: 5, backgroundColor: '#EBEDEF', width: 300, borderRadius: 20, fontSize: 15, height: 50, color: "black" }}
+                {/* <View style = {styles.container}> */}
+                <TouchableOpacity style={{  margin: 5,backgroundColor: 'white', width: 300, borderRadius: 20, fontSize: 10, height: 5, color: "black"}}
                 >
                     <Picker
                         selectedValue={type}
                         style={{ color: 'black' }}
                         onValueChange={(itemValue, itemIndex) => SetType(itemValue)}
+                        // dropdown={true}
                     >
-                        <Picker.Item label="Select" value="" />
+                        <Picker.Item label="Car Type" value="" />
                         <Picker.Item label="Hatchback" value="Hatchback" />
                         <Picker.Item label="SUV" value="SUV" />
                         <Picker.Item label="Sedan" value="Sedan" />
                         <Picker.Item label="Luxury" value="Luxury" />
                     </Picker>
                 </TouchableOpacity>
+                {/* </View> */}
                 <TextInput
-                    style={{ marginTop: 10, margin: 5, padding: 5, paddingLeft: 20, backgroundColor: '#EBEDEF', width: 300, borderRadius: 20, fontSize: 15, height: 50, color: "black" }}
+                    style={{  margin: 5, padding: 5, paddingLeft: 20, backgroundColor: '#EBEDEF', width: 300, borderRadius: 20, fontSize: 15, height: 50, color: "black" }}
                     placeholder='Password'
                     autoCapitalize='none'
                     placeholderTextColor='black'
@@ -145,9 +157,9 @@ export function Register({ navigation }) {
                         shadowOpacity: 0.5,
                         shadowRadius: 4,
 
-                        elevation: 7, marginTop: '10%', backgroundColor: '#059DC0', borderRadius: 25, paddingVertical: '2%', paddingHorizontal: '10%', justifyContent: 'center'
+                        elevation: 7, marginTop: '30%', backgroundColor: '#059DC0', borderRadius: 25, paddingVertical: '2%', paddingHorizontal: '10%', justifyContent: 'center'
                     }}>
-                    <Text style={{ fontFamily: 'JosefinSans-SemiBold', fontSize: 20, paddingRight: 5, paddingBottom: 3, color: 'white', alignSelf: 'center' }}>Register</Text>
+                    <Text style={{  fontSize: 20, paddingRight: 5, paddingBottom: 3, color: 'white', alignSelf: 'center' }}>Register</Text>
                 </TouchableOpacity>
             </View>
         </View>

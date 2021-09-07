@@ -45,7 +45,7 @@ export function Home({ navigation }) {
 
                         elevation: 7, marginTop: '10%', backgroundColor: 'white', borderRadius: 25, paddingVertical: '2%', paddingHorizontal: '10%', justifyContent: 'center'
                     }}>
-                    <Text style={{ fontFamily: 'JosefinSans-SemiBold', fontSize: 20, paddingRight: 5, paddingBottom: 3, color: '#059DC0', alignSelf: 'center' }}>LOGOUT</Text>
+                    <Text style={{  fontSize: 20, paddingRight: 5, paddingBottom: 3, color: '#059DC0', alignSelf: 'center' }}>LOGOUT</Text>
                 </TouchableOpacity>
 
 

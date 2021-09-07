@@ -74,11 +74,11 @@ export function Signin({ navigation }) {
 
                         elevation: 7, marginTop: '10%', backgroundColor: 'white', borderRadius: 25, paddingVertical: '2%', paddingHorizontal: '10%', justifyContent: 'center'
                     }}>
-                    <Text style={{ fontFamily: 'JosefinSans-SemiBold', fontSize: 20, paddingRight: 5, paddingBottom: 3, color: '#059DC0', alignSelf: 'center' }}>Login</Text>
+                    <Text style={{ fontSize: 20, paddingRight: 5, paddingBottom: 3, color: '#059DC0', alignSelf: 'center' }}>Login</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => navigation.navigate('Register')}>
-                    <Text style={{ fontFamily: 'JosefinSans-SemiBold', fontSize: 20, paddingRight: 5, paddingBottom: 3, color: 'white', alignSelf: 'center', marginTop: 15 }}>Register</Text>
+                    <Text style={{ fontSize: 20, paddingRight: 5, paddingBottom: 3, color: 'white', alignSelf: 'center', marginTop: 15 }}>Register</Text>
                 </TouchableOpacity>
 
 
